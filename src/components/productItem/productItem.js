@@ -1,6 +1,8 @@
 import React, {Component} from "react";
+
 // import "./productItem.css"
 import "./productList2.css"
+
 import {Button} from "primereact/button";
 
 export class ProductItem extends Component {
@@ -29,37 +31,41 @@ export class ProductItem extends Component {
     }
 
     render() {
-
+// перебераем массив данных из grillData.json полученный в пропс и возврашаем обьект который необходимо отрендедить на страничке
         const elem = this.props.data.map((item) => {
             return (
+                //Main block
                 <div className="p-col-12 p-md-6 p-lg-3">
-                    <div className="product-block p-m-2 p-shadow-3">
+                    <div className="product-block p-shadow-3"  style={{height:"100%"}}>
+                        {/*img block*/}
                         <div className="product-block__image p-m-3">
                             <img
                                 src="https://media.dominos.ua/__sized__/menu/product_osg_image_category/2021/07/27/Manhatten_slice_collageweb-min-thumbnail-960x960-70.jpg"
                                 alt="title"/>
                         </div>
-                        <div className="product-block__description p-m-3">
-                            <div className="product-block__title p-pt-2">
+                        {/*description block*/}
+                        <div className="product-block__description p-m-3 p-d-flex p-flex-column">
+                            <div className="product-block__title">
                                 <div className="product-block__title-text">
                                     <span>{item.title}</span>
                                 </div>
                             </div>
-                            <div className="product-block__ingredients p-pt-2">
+                            <div className="product-block__ingredients p-pt-2" style={{minHeight: "80px"}}>
                                 <span>{item.ingredients}</span>
                             </div>
+                            {/*price + button block*/}
                             <div
-                                className="product-block__price p-d-flex p-flex-row p-pt-4 p-justify-between p-ai-center">
+                                className="product-block__price p-d-flex p-flex-row p-justify-between p-ai-center p-mt-2">
                                 <div className="product-block__price-block">
+                                    {/*price*/}
                                     <div>
                                         <span className="product-block__price">{item.coast}</span>
                                         <span className="product-block__currently p-pl-1">грн</span>
                                     </div>
+                                    {/*btn + call*/}
                                 </div>
                                 <div className="product-block__btn-wrap">
-                                    {/*<Button label=" Заказать" className="p-button-danger pi pi-phone"*/}
-                                    {/*        style={{borderRadius: "20px", fontWeight: "bold"}}/>*/}
-                                    <form action="tel:+380635562952">
+                                    <form action="tel:+380994376554">
                                         <Button label=" Заказать" className="p-button-danger pi pi-phone"
                                                 style={{borderRadius: "20px", fontWeight: "bold"}}/>
                                     </form>
@@ -70,6 +76,7 @@ export class ProductItem extends Component {
                 </div>
             )
         })
+
         return (
                 <div className="p-grid">
                     {elem}
