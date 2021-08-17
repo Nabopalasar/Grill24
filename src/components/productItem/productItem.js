@@ -40,7 +40,7 @@ export class ProductItem extends Component {
                         {/*img block*/}
                         <div className="product-block__image p-m-3">
                             <img
-                                src="https://media.dominos.ua/__sized__/menu/product_osg_image_category/2021/07/27/Manhatten_slice_collageweb-min-thumbnail-960x960-70.jpg"
+                                src={item.url}
                                 alt="title"/>
                         </div>
                         {/*description block*/}
